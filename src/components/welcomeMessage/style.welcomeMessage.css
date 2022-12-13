@@ -1,0 +1,15 @@
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.welcomeContainer img { height: 130px; }
+
+.welcomeContainer .welcomeText {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}

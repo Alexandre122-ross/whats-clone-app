@@ -1,0 +1,51 @@
+.chatItemContaier {
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 1.2rem;
+  height: 70px;
+}
+
+.chatItemContaier .chatImage {
+  border-radius: 100%;
+  font-size: 1.2rem;
+  height: 50px;
+  width: 50px;
+}
+
+.chatItemContaier .chatInfoContainer {
+  border-bottom: 1px solid rgba(0, 0, 0, .25);
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  padding: .6rem 1.2rem .6rem 1rem;
+  height: 100%;
+}
+
+.chatInfoContainer .titleChatText,
+.chatInfoContainer .lastMsgText {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.chatInfoContainer .titleChatText { 
+  font-size: 1.5rem; 
+  font-weight: 700;
+}
+
+.chatInfoContainer .lastMsgText {
+  opacity: .7;
+  font-size: 1.2rem;
+  margin-top: .4rem;
+}
+
+.chatInfoContainer .timeText {
+  opacity: .7;
+  font-size: 1.4rem;
+  font-weight: 500;
+  position: absolute;
+  bottom: .4rem;
+  right: 1.2rem;
+}

@@ -5,7 +5,7 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 function AuthProvider({ children }) {
-  const [currentuser, setCurrentuser] = useState(null);
+  const [currentuser, setCurrentuser] = useState({});
 
   const handleSignIn = (dataForm, callback) => {
     setCurrentuser({...dataForm, uid: 'Beta-01'});

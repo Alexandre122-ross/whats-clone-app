@@ -1,0 +1,100 @@
+.homeContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.homeContainer .imageContainer {
+  border-radius: 100%;
+  font-size: 1.2rem;
+  height: 40px;
+  width: 40px;
+}
+
+.homeContainer .icon { font-size: 1.6rem; }
+
+.homeContainer .homeBorderContainer {
+  background-color: #43C553;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30%;
+  width: 100%;
+}
+
+.homeContainer .homeChatContainer {
+  background-color: #fff;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, .25);
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  height: 80%;
+  width: 80%;
+  max-width: 1200px;
+  z-index: 2;
+}
+
+.homeChatContainer .homeChatCol:first-child {
+  border-right: 1px solid rgba(0, 0, 0, .25);
+  width: 30%;
+  min-width: 250px;
+}
+
+.homeChatContainer .homeChatCol:last-child {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.homeChatCol:first-child > .headerContainer div {
+  border-bottom: 1px solid rgba(0, 0, 0, .25);
+  display: flex;
+  align-items: center;
+}
+
+.headerContainer .headerActionContainer {
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  height: 50px;
+}
+
+.headerContainer .headerSearchContainer {
+  padding: .8rem 1.2rem;
+  height: 60px;
+}
+
+.headerSearchContainer .inputSearchContainer {
+  background-color: #f2f5f9;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, .25);
+  border-radius: .8rem;
+  display: flex;
+  align-items: center;
+  padding: .8rem;
+  padding-left: 1.2rem;
+  height: 100%;
+  width: 100%;
+}
+
+.inputSearchContainer .icon {
+  font-size: 1.2rem;
+  margin-right: .8rem;
+}
+
+.inputSearchContainer .input {
+  background-color: transparent;
+  border: none;
+  border-left: 1px solid rgba(0, 0, 0, .25);
+  outline: none;
+  flex: 1;
+  font-size: 1.2rem;
+  padding-left: .8rem;
+  height: 100%;
+}
+
+.homeChatCol .chatListContainer {
+  list-style: none;
+  overflow-y: auto;
+  height: calc(100% - (50px + 60px));
+}

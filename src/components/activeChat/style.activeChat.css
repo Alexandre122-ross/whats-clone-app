@@ -1,0 +1,54 @@
+.activeChatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.activeChatContainer > div { padding: .8rem 1.2rem; }
+
+.activeChatContainer .headerContainer,
+.activeChatContainer .inputMessagesContainer {
+  background-color: #f2f5f9;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.activeChatContainer .headerContainer { border-bottom: 1px solid rgba(0, 0, 0, .25); }
+
+.activeChatContainer > .headerContainer .titleChatText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-left: 1.2rem;
+  margin-right: auto;
+}
+
+.activeChatContainer > .headerContainer .icon { margin-left: 1.2rem; }
+
+.activeChatContainer .messagensContainer { 
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.activeChatContainer .inputMessagesContainer { 
+  border-top: 1px solid rgba(0, 0, 0, .25); 
+  height: 60px;
+}
+
+.activeChatContainer > .inputMessagesContainer .icon { font-size: 2rem; }
+
+.inputMessagesContainer .inputDataMessage {
+  /* background-color: #f2f5f9; */
+  box-shadow: 0 0 4px rgba(0, 0, 0, .25);
+  border: none;
+  border-radius: .8rem;
+  outline: none;
+  font-size: 1.2rem;
+  flex: 1;
+  margin: 0 1rem;
+  padding: 0 1.2rem;
+  height: 100%
+}
