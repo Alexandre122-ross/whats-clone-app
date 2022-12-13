@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/auth';
+import InputDataComponent from '../../components/inputData';
 
 function SignInScreen() {
   const [email, setEmail] = useState('');
@@ -16,19 +17,19 @@ function SignInScreen() {
 
   return (
     <>
-      <input 
-        type='text' 
-        className='inputContainer' 
-        placeholder='Email' 
-        value={email}
-        onChange={(ev) => setEmail(ev.target.value)} 
-        />
-      <input 
-        type='text' 
-        className='inputContainer' 
-        placeholder='Senha' 
-        value={password}
-        onChange={(ev) => setPassword(ev.target.value)} 
+      <InputDataComponent
+        type='email'
+        nameInput='emailInput'
+        labelText='Email'
+        inputValue={email}
+        handleChange={setEmail}
+      />
+      <InputDataComponent
+        type='password'
+        nameInput='passwordInput'
+        labelText='Password'
+        inputValue={password}
+        handleChange={setPassword}
       />
 
       <div className='navigationContainer'>
