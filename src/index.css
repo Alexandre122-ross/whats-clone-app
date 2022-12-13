@@ -16,3 +16,8 @@ body {
 }
 
 .wrapper { height: 100vh; }
+
+.menuItemContainer { 
+  font-family: inherit !important;
+  font-size: 1.2rem !important; 
+}

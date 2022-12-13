@@ -14,16 +14,27 @@
   height: 50px;
 }
 
-.activeChatContainer .headerContainer { border-bottom: 1px solid rgba(0, 0, 0, .25); }
+.activeChatContainer .headerContainer { 
+  border-bottom: 1px solid rgba(0, 0, 0, .25); 
+  overflow: hidden;
+}
+
+.activeChatContainer > .headerContainer .iconContainer { 
+  color: #0000EE;
+  display: none;
+  margin-right: .8rem; 
+}
 
 .activeChatContainer > .headerContainer .titleChatText {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-size: 1.6rem;
   font-weight: 700;
   margin-left: 1.2rem;
   margin-right: auto;
+  flex: 1;
 }
-
-.activeChatContainer > .headerContainer .icon { margin-left: 1.2rem; }
 
 .activeChatContainer .messagensContainer { 
   display: flex;
@@ -51,4 +62,8 @@
   margin: 0 1rem;
   padding: 0 1.2rem;
   height: 100%
+}
+
+@media (max-width: 600px) {
+  .activeChatContainer > .headerContainer .iconContainer { display: flex; }
 }
