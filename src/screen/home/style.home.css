@@ -107,7 +107,9 @@
 
 .homeChatCol .chatListContainer {
   list-style: none;
+  overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
   height: calc(100% - (50px + 60px));
 }
 

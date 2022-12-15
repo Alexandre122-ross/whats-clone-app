@@ -3,6 +3,7 @@ import { IconButton, MenuItem } from '@mui/material';
 import { BsPlusLg, BsThreeDotsVertical, BsSearch } from 'react-icons/bs';
 import MenuComponents from '../../components/menu';
 import NewChatsComponent from '../../components/newChats';
+import ChatSearchComponent from '../../components/chatSearch';
 import CardChatListComponents from '../../components/cardChatList';
 import ActiveChatComponent from '../../components/activeChat';
 import WelcomeMessageComponent from '../../components/welcomeMessage';
@@ -11,13 +12,22 @@ import './style.home.css';
 function HomeScreen() {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [showNewChat, setShowNewChat] = useState(false);
-  const [chatList] = useState([{ chatUID: 'Sarah01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Sarah Rebeca', lastMessage: 'OHH', lastMessageTime: new Date() }]);
+  const [chatList] = useState([
+    { chatUID: 'Sarah01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Sarah Rebeca', lastMessage: 'OHH', lastMessageTime: new Date() },
+    { chatUID: 'lucas01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Lucas Samuel', lastMessage: 'OHH', lastMessageTime: new Date() },
+    { chatUID: 'Gabriel01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Gabriel Alexandre', lastMessage: 'OHH', lastMessageTime: new Date() },
+    { chatUID: 'mateus01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Mateus', lastMessage: 'OHH', lastMessageTime: new Date() },
+    { chatUID: 'Luiz01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Luiz Said', lastMessage: 'OHH', lastMessageTime: new Date() },
+  ]);
+  const [inputSeachValue, setInputSeachValue] = useState('');
   const [activeChat, setActiveChat] = useState(null);
 
   // Actions  
   const handleActiveMenu = (ev) => setMenuAnchorEl(ev.currentTarget);
   const handleCloseMenu = () => setMenuAnchorEl(null);
   const toggleNewChat = () => setShowNewChat((state) => !state);
+  const handleSetSearchKey = (ev) => setInputSeachValue(ev.target.value);
+  const handleClearSearchKey = () => setInputSeachValue('');
   const handleActiveChat = (chatData) => setActiveChat(chatData);
   const handleCloseActiveChat = () => setActiveChat(null);
 
@@ -57,13 +67,22 @@ function HomeScreen() {
                 <input 
                   type='search'
                   className='input'
-                  placeholder='Search for a chat...'
+                  placeholder='Search...'
+                  value={inputSeachValue}
+                  onChange={handleSetSearchKey}
                 />
               </div>
             </div>
           </div>
 
           <ul className='chatListContainer'>
+            <ChatSearchComponent 
+              inputSeachValue={inputSeachValue} 
+              listChat={chatList} 
+              handleActiveChat={handleActiveChat}
+              handleClearSearchKey={handleClearSearchKey}
+            />
+
             {chatList.length > 0
               ? chatList.map((item) =>
                 <CardChatListComponents
