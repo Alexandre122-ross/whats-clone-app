@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { IconButton, MenuItem } from '@mui/material';
-import { BsThreeDotsVertical, BsSearch } from 'react-icons/bs';
+import { BsPlusLg, BsThreeDotsVertical, BsSearch } from 'react-icons/bs';
 import MenuComponents from '../../components/menu';
+import NewChatsComponent from '../../components/newChats';
 import CardChatListComponents from '../../components/cardChatList';
 import ActiveChatComponent from '../../components/activeChat';
 import WelcomeMessageComponent from '../../components/welcomeMessage';
@@ -9,14 +10,14 @@ import './style.home.css';
 
 function HomeScreen() {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
-  const [chatList] = useState([
-    { chatUID: 'Lucas01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Lucas Samuel', lastMessage: 'HEHEH', lastMessageTime: new Date()  },
-    { chatUID: 'Sarah01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Sarah Rebeca', lastMessage: 'OHH', lastMessageTime: new Date()  },
-  ]);
+  const [showNewChat, setShowNewChat] = useState(false);
+  const [chatList] = useState([{ chatUID: 'Sarah01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Sarah Rebeca', lastMessage: 'OHH', lastMessageTime: new Date() }]);
   const [activeChat, setActiveChat] = useState(null);
 
+  // Actions  
   const handleActiveMenu = (ev) => setMenuAnchorEl(ev.currentTarget);
   const handleCloseMenu = () => setMenuAnchorEl(null);
+  const toggleNewChat = () => setShowNewChat((state) => !state);
   const handleActiveChat = (chatData) => setActiveChat(chatData);
   const handleCloseActiveChat = () => setActiveChat(null);
 
@@ -25,6 +26,8 @@ function HomeScreen() {
 
       <div className='homeChatContainer'>
         <div className={`homeChatCol ${activeChat ? 'hiddenCol' : ''}`}>
+          <NewChatsComponent open={showNewChat} handleClose={toggleNewChat} />
+
           <div className='headerContainer'>
             <div className='headerActionContainer'> 
               <img 
@@ -33,9 +36,14 @@ function HomeScreen() {
                 className='imageContainer' 
               />
 
-              <IconButton onClick={handleActiveMenu}>
-                <BsThreeDotsVertical size={20} className='icon' />
-              </IconButton>
+              <div className='actionIconsContainer'>
+                <IconButton onClick={toggleNewChat}>
+                  <BsPlusLg size={20} className='icon' />
+                </IconButton>
+                <IconButton onClick={handleActiveMenu}>
+                  <BsThreeDotsVertical size={20} className='icon' />
+                </IconButton>
+              </div>
 
               <MenuComponents anchorEl={menuAnchorEl} handleClose={handleCloseMenu}>
                 <MenuItem className='menuItemContainer'> Profile </MenuItem>

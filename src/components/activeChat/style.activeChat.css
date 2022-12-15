@@ -37,6 +37,9 @@
 }
 
 .activeChatContainer .messagensContainer { 
+  background-image: url('../../imgs/wallpaperLight.png');
+  background-position: center;
+  background-size: contain;
   display: flex;
   flex-direction: column;
   flex: 1; 

@@ -39,6 +39,7 @@
 .homeChatContainer .homeChatCol:first-child {
   background-color: #fff;
   border-right: 1px solid rgba(0, 0, 0, .25);
+  position: relative;
   width: 30%;
   min-width: 250px;
   z-index: 2;
@@ -60,9 +61,13 @@
 .headerContainer .headerActionContainer {
   background-color: #43C553;
   color: #fff;
-  justify-content: space-between;
   padding: 0 1.2rem;
   height: 50px;
+}
+
+.headerActionContainer .actionIconsContainer {
+  border: none !important;
+  margin-left: auto;
 }
 
 .headerActionContainer .icon { color: #fff; }
