@@ -4,21 +4,30 @@ import { BsChevronLeft, BsSearch, BsThreeDotsVertical, BsEmojiSmile, BsMic } fro
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import MenuComponent from '../menu';
 import CardMessageComponent from '../cardMessage';
+import ChatSearchMessageComponents from '../chatSearchMessage';
 import './style.activeChat.css';
 
 function ActiveChatComponent({ dataChat, handleCloseActiveChat }) {
+  const [showSearchMessage, setShowSearchMessage] = useState(false);
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [message, setMessage] = useState('');
   const [messageList] = useState([
-    { senderUID: 'myID', message: 'OLA', messageDate: new Date(), },
-    { senderUID: 'ID', message: 'HEHEH', messageDate: new Date(), },
+    { senderUID: 'myID', senderMessage: 'Sarah Rebeca', message: 'OLA', messageDate: new Date(), },
+    { senderUID: 'ID', senderMessage: 'Alex', message: 'HEHEH', messageDate: new Date(), },
   ]);
 
+  const toggleSearchMessage = () => setShowSearchMessage((state) => !state);
   const handleActiveMenu = (ev) => setMenuAnchorEl(ev.currentTarget);
   const handleCloseMenu = () => setMenuAnchorEl(null);
 
   return (
     <div className='activeChatContainer'>
+      <ChatSearchMessageComponents
+        open={showSearchMessage}
+        messageList={messageList}
+        handleClose={toggleSearchMessage}
+      />
+
       <div className='headerContainer'>
         <IconButton className='iconContainer isHidden' onClick={handleCloseActiveChat}>
           <BsChevronLeft size={20} />
@@ -32,7 +41,7 @@ function ActiveChatComponent({ dataChat, handleCloseActiveChat }) {
         <h2 className='titleChatText'> {dataChat.chatName} </h2>
 
         <div className='quickActionsContainer'>
-          <IconButton>
+          <IconButton onClick={toggleSearchMessage}>
             <BsSearch size={20} className='icon' />
           </IconButton>
           

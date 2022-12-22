@@ -1,0 +1,77 @@
+.searchMessageContainer {
+  background-color: #f2f5f9;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  padding: 0 !important;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  transition: right .35s;
+}
+
+.showSearchMessageContainer { right: 0; }
+
+.searchMessageContainer .headerContainer {
+  flex-direction: column;
+  height: fit-content !important;
+}
+
+.searchMessageContainer > .headerContainer div { width: 100%; }
+
+.searchMessageContainer > .headerContainer .headerActionContainer {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.headerActionContainer .headerTitleText { 
+  font-size: 1.6rem; 
+  font-weight: 600;
+  margin-left: 1.2rem;
+}
+
+.headerActionContainer .icon { font-size: inherit; } 
+
+.searchMessageContainer .listFilterMessageContainer {
+  list-style: none;
+  overflow-y: auto;
+  height: calc(100% - (50px + 60px));
+}
+
+.searchMessageContainer > .listFilterMessageContainer .warningText {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 1.2rem;
+}
+
+.listFilterMessageContainer .searchCardItemContainer {
+  cursor: pointer;
+  font-weight: 500;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: .8rem 1.2rem;
+  height: 70px;
+  width: 100%;
+}
+
+.listFilterMessageContainer .searchCardItemContainer:hover { background-color: #ebebeb; }
+
+.searchCardItemContainer .senderText { 
+  font-size: 1.4rem;
+  font-weight: inherit;
+  margin-bottom: .6rem;
+}
+
+.searchCardItemContainer .contentMessageText { 
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  font-size: 1.5rem;
+  font-weight: inherit;
+  width: 100%;
+}

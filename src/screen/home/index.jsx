@@ -12,13 +12,7 @@ import './style.home.css';
 function HomeScreen() {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [showNewChat, setShowNewChat] = useState(false);
-  const [chatList] = useState([
-    { chatUID: 'Sarah01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Sarah Rebeca', lastMessage: 'OHH', lastMessageTime: new Date() },
-    { chatUID: 'lucas01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Lucas Samuel', lastMessage: 'OHH', lastMessageTime: new Date() },
-    { chatUID: 'Gabriel01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Gabriel Alexandre', lastMessage: 'OHH', lastMessageTime: new Date() },
-    { chatUID: 'mateus01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Mateus', lastMessage: 'OHH', lastMessageTime: new Date() },
-    { chatUID: 'Luiz01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Luiz Said', lastMessage: 'OHH', lastMessageTime: new Date() },
-  ]);
+  const [chatList] = useState([ { chatUID: 'Sarah01293', chatPhoto: 'https://www.w3schools.com/howto/img_avatar2.png', chatName: 'Sarah Rebeca', lastMessage: 'OHH', lastMessageTime: new Date() } ]);
   const [inputSeachValue, setInputSeachValue] = useState('');
   const [activeChat, setActiveChat] = useState(null);
 
@@ -88,7 +82,7 @@ function HomeScreen() {
                 <CardChatListComponents
                   key={item.chatUID}
                   cardData={item}
-                  activeChat={false}
+                  activeChat={activeChat && item.chatUID === activeChat.chatUID}
                   handleAction={handleActiveChat}
                 />
               )
